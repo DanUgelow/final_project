@@ -1,0 +1,16 @@
+
+<form method='POST' action='/update_account'>
+  <label for="email">Email</label>
+  <input type="email" name="email">
+  <label for="password">Password</label>
+  <input type="password" name="password">
+  <input type='submit' value="Update account"> 
+</form>
+<strong><%= @user.email %>
+<%= @user.password %></strong>
+
+<hr>
+
+<form method='POST' action='/delete_account'>
+  <input type='submit' value="Delete account"> 
+</form>

@@ -1,0 +1,10 @@
+<% @posts.each do |p| %>
+  <br><strong><%= p.body %><strong><br>
+  <form action="/delete_post" method="POST">
+    <!-- 'Name' is params input field and 'value' for hidden
+    button is for post request value -->
+  	<input type="hidden" name="id" value="<%= p.id %>">
+    <input type="submit" value="Delete post">
+  </form>
+  <hr>
+<% end %>

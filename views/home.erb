@@ -1,0 +1,16 @@
+<div id="left-post">
+  <form method="POST" action="/post">
+	<textarea name="body"></textarea>
+	<input type="submit" value="Create Post">
+  </form>
+</div>
+
+<%= current_user.email %>
+
+<hr>
+
+<div id="right-view">
+   <% @posts.each do |p| %>
+  	 <strong><%= p.body %></strong><br>
+  <% end %>
+</div>
