@@ -12,9 +12,7 @@ gem 'rake'
 # shotgun updates server without restart
 gem 'shotgun'
 
-
-
-# gem 'bcrpyt'
+gem 'bcrypt'
 # sass
 # bourbon
 
