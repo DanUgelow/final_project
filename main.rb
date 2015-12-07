@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/flash'
 require './models'
 require 'byebug'
+require 'bcrypt'
 
 
 #for Heroku. Sets connection to db in app.sqlite3 through sqlite3
@@ -16,16 +17,23 @@ get '/' do
 end
 
 post '/signup' do
-	@user = User.new(email: params[:email], password: params[:password])
+	my_password = BCrypt::Password.create(params[:password])
+	@user = User.new(email: params[:email], password: my_password)
 	@user.save
 	session[:user_id] = @user.id
 	redirect "/home"
 end
 
 post '/signin' do
-	@user = User.where(email: params[:email], password: params[:password]).first
-	session[:user_id] = @user.id
-	redirect "/home"
+	@user = User.find_by(email: params[:email])
+	# retrieve db password and unencrypt to compare. New is a bcrypt method
+	db_password = BCrypt::Password.new(@user.password)
+	if @user.password == db_password
+	  session[:user_id] = @user.id
+	  redirect "/home"
+	else
+	  redirect "/"
+	end
 end
 
 get '/logout' do
@@ -65,7 +73,8 @@ end
 
 # puts request
 post '/update_account' do
-  @user = current_user.update(email: params[:email],password: params[:password])
+  new_pass = BCrypt::Password.create(params[:password])
+  @user = current_user.update(email: params[:email],password: new_pass)
   redirect '/account'
 end
 

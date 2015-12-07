@@ -1,9 +1,15 @@
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+
 <div id="left-post">
   <form method="POST" action="/post">
 	<textarea name="body"></textarea>
 	<input type="submit" value="Create Post">
   </form>
 </div>
+
+ 
+
 
 <%= current_user.email %>
 
