@@ -26,9 +26,8 @@ end
 
 post '/signin' do
 	@user = User.find_by(email: params[:email])
-	# retrieve db password and unencrypt to compare. New is a bcrypt method
-	db_password = BCrypt::Password.new(@user.password)
-	if @user.password == db_password
+	# .== is a method call for comparing passwords
+	if BCrypt::Password.new(@user.password).==(params[:password])
 	  session[:user_id] = @user.id
 	  redirect "/home"
 	else
