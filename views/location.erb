@@ -1,0 +1,6 @@
+<% @posts.each do |p| %>
+<p><%= minutes_in_words(p.created_at) %> ago</p>
+      <strong><%= p.body %></strong><br>
+      <%= p.latitude %><br>
+      <%= p.longitude %>
+      <% end %>

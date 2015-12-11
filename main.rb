@@ -42,10 +42,18 @@ get '/logout' do
   end
 end
 
+get '/home/location' do
+	# byebug
+	@posts = Post.near([params[:lat], params[:lon]], 1).order(:created_at).reverse
+	erb :location, :layout => false
+end
+
+
 get '/home' do
+	@latitude = params[:lat]
+    @longitude = params[:lon]
+    puts params
 	@posts = Post.all.order(:created_at).reverse
-	@post_radius = Post.near([40.7083435, -74.0066724], 1).order(:created_at).reverse
-	# @post_radius = Post.geocoded
 	erb :home
 end
 
@@ -68,7 +76,6 @@ post '/delete_post' do
 	@post = Post.find(params[:id])
 	@post.destroy
 	redirect '/user_posts'
-
 end
 
 # puts request
