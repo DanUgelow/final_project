@@ -29,12 +29,8 @@
 </div>
 
 <hr>
+<div id="post_radius">
 
-<% @post_radius.each do |p| %>
-<p><%= minutes_in_words(p.created_at) %> ago</p>
-  	 <strong><%= p.body %></strong><br>
-  	 <%= p.latitude %><br>
-  	 <%= p.longitude %>
-  	 <% end %>
+</div>
  <!-- to_a makes array object -->
 <!-- @post_radius.to_a -->
