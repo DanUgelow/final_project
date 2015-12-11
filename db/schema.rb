@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208200807) do
+ActiveRecord::Schema.define(version: 20151209160905) do
 
   create_table "posts", force: :cascade do |t|
-    t.string  "subject"
-    t.string  "body"
-    t.integer "user_id"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
+
+  add_index "posts", ["latitude", "longitude"], name: "index_posts_on_latitude_and_longitude"
 
   create_table "users", force: :cascade do |t|
     t.string "username"
