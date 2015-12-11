@@ -1,15 +1,16 @@
+
+
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 
 <div id="left-post">
   <form method="POST" action="/post">
 	<textarea name="body"></textarea>
+	<input id="lat" type="hidden" name="latitude" value="">
+	<input id="lon" type="hidden" name="longitude" value="">
 	<input type="submit" value="Create Post">
   </form>
 </div>
-
- 
-
 
 <%= current_user.email %>
 
@@ -17,21 +18,22 @@
 
 <div id="right-view">
    <% @posts.each do |p| %>
+     <p>Posted <%= minutes_in_words(p.created_at) %> ago</p>
   	 <strong><%= p.body %></strong><br>
+  	 <%= p.latitude %><br>
+  	 <%= p.longitude %>
+  <!-- else 
+   <h1>No traces by you!</h1> -->
   <% end %>
+  <!-- <end -->
 </div>
 
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-}
-</script>
+<hr>
+<% @post_radius.each do |p| %>
+<p>Posted <%= minutes_in_words(p.created_at) %> ago</p>
+  	 <strong><%= p.body %></strong><br>
+  	 <%= p.latitude %><br>
+  	 <%= p.longitude %>
+  	 <% end %>
+ <!-- to_a makes object -->
+<!-- @post_radius.to_a -->

@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 ruby '2.2.3'
 
 gem 'sinatra'
+
 # flash messages
 gem 'sinatra-flash'
 gem 'activerecord'
@@ -15,7 +16,7 @@ gem 'shotgun'
 gem 'bcrypt'
 # sass
 # bourbon
-
+gem 'geocoder'
 
 #for Heroku
 group :development do   #for local dev      
