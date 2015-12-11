@@ -44,7 +44,7 @@ end
 
 get '/home' do
 	@posts = Post.all.order(:created_at).reverse
-	@post_radius = Post.near([40.7985717, -73.5206119], 1).order(:created_at).reverse
+	@post_radius = Post.near([40.7083435, -74.0066724], 1).order(:created_at).reverse
 	# @post_radius = Post.geocoded
 	erb :home
 end
@@ -97,13 +97,7 @@ def minutes_in_words(timestamp)
     return nil if minutes < 0
     
     case minutes
-      when 0..1            then 'less than 2 minutes'
-      when 2..4            then 'less than 5 minutes'
-      when 5..9            then 'less than 10 minutes'
-      when 10..14		   then 'less than 15 minutes'
-      when 15..29          then 'less than 30 minutes'
-      when 30..44          then 'less than 45 minutes'
-      when 45..59          then 'less than 1 hour'
+      when 0..59           then "#{minutes} minutes"
       when 60..90          then 'more than 1 hour'
       when 89..119		   then 'less than 2 hours'
       when 120..179        then 'less than 3 hours'

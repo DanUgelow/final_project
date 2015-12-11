@@ -3,6 +3,8 @@
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 
+<%= current_user.email %>
+
 <div id="left-post">
   <form method="POST" action="/post">
 	<textarea name="body"></textarea>
@@ -12,13 +14,11 @@
   </form>
 </div>
 
-<%= current_user.email %>
-
 <hr>
 
 <div id="right-view">
    <% @posts.each do |p| %>
-     <p>Posted <%= minutes_in_words(p.created_at) %> ago</p>
+     <p><%= minutes_in_words(p.created_at) %> ago</p>
   	 <strong><%= p.body %></strong><br>
   	 <%= p.latitude %><br>
   	 <%= p.longitude %>
@@ -29,11 +29,12 @@
 </div>
 
 <hr>
+
 <% @post_radius.each do |p| %>
-<p>Posted <%= minutes_in_words(p.created_at) %> ago</p>
+<p><%= minutes_in_words(p.created_at) %> ago</p>
   	 <strong><%= p.body %></strong><br>
   	 <%= p.latitude %><br>
   	 <%= p.longitude %>
   	 <% end %>
- <!-- to_a makes object -->
+ <!-- to_a makes array object -->
 <!-- @post_radius.to_a -->
