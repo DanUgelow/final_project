@@ -1,6 +1,8 @@
-<% @posts.each do |p| %>
-<p><%= minutes_in_words(p.created_at) %> ago</p>
-      <strong><%= p.body %></strong><br>
-      <%= p.latitude %><br>
-      <%= p.longitude %>
-      <% end %>
+<div id="post_section" class="six columns">
+	<% @posts.each do |p| %>
+	<div id="posts">
+	  <p><em><%= minutes_in_words(p.created_at) %> ago</em></p>
+	  <%= p.body %>
+	</div>
+	<% end %>
+</div>

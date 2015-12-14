@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require './models'
 require 'byebug'
 require 'bcrypt'
-# require 'geocoder'
+
 
 #for Heroku. Sets connection to db in app.sqlite3 through sqlite3
 configure(:development){set :database, "sqlite3:app.sqlite3"}
@@ -18,9 +18,12 @@ end
 post '/signup' do
 	my_password = BCrypt::Password.create(params[:password])
 	@user = User.new(email: params[:email], password: my_password)
-	@user.save
-	session[:user_id] = @user.id
-	redirect "/home"
+	if @user.save
+	  session[:user_id] = @user.id
+	  redirect "/home"
+	else
+	  redirect '/'
+	end
 end
 
 post '/signin' do
@@ -44,7 +47,7 @@ end
 
 get '/home/location' do
 	# byebug
-	@posts = Post.near([params[:lat], params[:lon]], 1).order(:created_at).reverse
+	@posts = Post.near([params[:lat], params[:lon]], 1)
 	erb :location, :layout => false
 end
 
@@ -105,13 +108,13 @@ def minutes_in_words(timestamp)
     
     case minutes
       when 0..59           then "#{minutes} minutes"
-      when 60..90          then 'more than 1 hour'
-      when 89..119		   then 'less than 2 hours'
-      when 120..179        then 'less than 3 hours'
-      when 180..239        then 'less than 4 hours'
-      when 240..719		   then 'less than 11 hours'
-      when 720..1439       then 'less than 12 hours'
-      when 1440..11519     then 'less than a day'
+      when 60..90          then 'More than 1 hour'
+      when 89..119		   then 'Less than 2 hours'
+      when 120..179        then 'Less than 3 hours'
+      when 180..239        then 'Less than 4 hours'
+      when 240..719		   then 'Less than 11 hours'
+      when 720..1439       then 'Less than 12 hours'
+      when 1440..11519     then 'Less than a day'
       # when 11520..43199    then '&gt; ' << pluralize((minutes/11520).floor, 'week')
       # when 43200..525599   then '&gt; ' << pluralize((minutes/43200).floor, 'month')  
       # else                      '&gt; ' << pluralize((minutes/525600).floor, 'year')

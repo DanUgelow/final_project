@@ -1,16 +1,26 @@
-
-<form method='POST' action='/update_account'>
-  <label for="email">Email</label>
-  <input type="email" name="email">
-  <label for="password">Password</label>
-  <input type="password" name="password">
-  <input type='submit' value="Update account"> 
-</form>
-<strong><%= @user.email %>
-<%= @user.password %></strong>
+<div class="row">
+  <div id="nav">
+    <a href="home"><i class="fa fa-home fa-2x"></i></a>
+    <a href="user_posts"><i class="fa fa-comment fa-2x"></i></a>
+    <a href="account"><i class="fa fa-cog fa-2x"></i></a>
+    <a href="logout"><i class="fa fa-sign-out fa-2x"></i></a>
+  </div>
+</div>
+<div class="row">
+  <div id="settings" class="three columns">
+	<form method='POST' action='/update_account'>
+	  <input type="email" placeholder="Email" name="email">
+	  <input type="password" placeholder="Password" name="password">
+	  <input type="password" required="required" autocomplete="off" placeholder="Confirm Password" name="password_confirmation"/>
+	  <input type='submit' value="Update account"> 
+	</form>
+  </div>
+</div>
 
 <hr>
-
+<div class="row">
 <form method='POST' action='/delete_account'>
   <input type='submit' value="Delete account"> 
 </form>
+</div>
+

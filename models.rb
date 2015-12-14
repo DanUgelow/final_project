@@ -2,6 +2,10 @@ require 'geocoder'
 
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
+  validates_presence_of :password, on: :create
+  validates :password, confirmation: true
+  validates_presence_of :email
+  validates :email, uniqueness: true
 end
 
 class Post < ActiveRecord::Base

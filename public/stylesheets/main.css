@@ -1,0 +1,53 @@
+body {
+  background-color: #F1F1F1; }
+
+#signin {
+  margin-top: 30px; }
+
+#middle {
+  padding: 20px;
+  background-color: white; }
+
+#signup {
+  background-color: #444444; }
+  #signup #signup_form {
+    background-color: #F1F1F1;
+    width: 300px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px #888888; }
+    #signup #signup_form h3 {
+      text-align: center; }
+
+#post_section {
+  height: 300px;
+  overflow: scroll; }
+  #post_section #posts {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px; }
+
+#nav {
+  border-top: solid #E1E1E1 2px;
+  border-bottom: solid #E1E1E1 2px; }
+
+#settings {
+  margin-top: 20px; }
+
+#posts_page {
+  height: 200px; }
+  #posts_page #user_posts {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px; }
+
+#footer {
+  background-color: #2D2B2B; }
+
+/*# sourceMappingURL=main.css.map */

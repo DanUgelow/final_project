@@ -1,10 +1,28 @@
+<div class="row">
+  <div id="nav">
+	    <a href="home"><i class="fa fa-home fa-2x"></i></a>
+	    <a href="user_posts"><i class="fa fa-comment fa-2x"></i></a>
+	    <a href="account"><i class="fa fa-cog fa-2x"></i></a>
+	    <a href="logout"><i class="fa fa-sign-out fa-2x"></i></a>
+  </div>
+</div>
+
+<h4>Your Posts Will Appear Here</h4>
+
 <% @posts.each do |p| %>
-  <br><strong><%= p.body %><strong><br>
-  <form action="/delete_post" method="POST">
-    <!-- 'Name' is params input field and 'value' for hidden
-    button is for post request value -->
-  	<input type="hidden" name="id" value="<%= p.id %>">
-    <input type="submit" value="Delete post">
-  </form>
-  <hr>
+<div id="row">
+  <div id="posts_page" class="six columns">
+    <div id="user_posts">
+	    <br><strong><%= p.body %></strong><br>
+	    <form action="/delete_post" method="POST">
+		    <!-- 'Name' is params input field and 'value' for hidden
+		    button is for post request value -->
+		  	<input type="hidden" name="id" value="<%= p.id %>">
+		    <input type="submit" value="Delete post">
+	    </form>
+    </div>
+  </div>
+</div>
 <% end %>
+
+
