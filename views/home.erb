@@ -1,6 +1,13 @@
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 
+<div id="bar" class="row">
+  <div class="four columns">
+      <img src="/imgs/logo2.png">
+  </div>
+</div>
+
+
 <div class="row">
   <div id="nav">
 	    <a href="home"><i class="fa fa-home fa-2x"></i></a>
@@ -20,7 +27,7 @@
 		</div>
 	</div>
 	<div class="six columns">
-	  <form method="POST" action="/post">
+	  <form id="post_form" method="POST" action="/post">
 		<textarea name="body"></textarea>
 		<input id="lat" type="hidden" name="latitude" value="">
 		<input id="lon" type="hidden" name="longitude" value="">
