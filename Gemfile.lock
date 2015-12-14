@@ -27,6 +27,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rake (10.4.2)
+    sass (3.4.19)
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.6)
@@ -54,6 +55,7 @@ DEPENDENCIES
   geocoder
   pg
   rake
+  sass
   shotgun
   sinatra
   sinatra-activerecord

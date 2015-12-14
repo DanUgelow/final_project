@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 ruby '2.2.3'
 
 gem 'sinatra'
-
 # flash messages
 gem 'sinatra-flash'
 gem 'activerecord'
@@ -12,12 +11,10 @@ gem 'sinatra-activerecord'
 gem 'rake'
 # shotgun updates server without restart
 gem 'shotgun'
-
 gem 'bcrypt'
-# sass
 # bourbon
 gem 'geocoder'
-
+gem 'sass'
 #for Heroku
 group :development do   #for local dev      
   gem 'sqlite3' 

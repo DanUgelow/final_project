@@ -1,36 +1,36 @@
-
-
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 
-<%= current_user.email %>
-
-<div id="left-post">
-  <form method="POST" action="/post">
-	<textarea name="body"></textarea>
-	<input id="lat" type="hidden" name="latitude" value="">
-	<input id="lon" type="hidden" name="longitude" value="">
-	<input type="submit" value="Create Post">
-  </form>
+<div class="row">
+  <div id="nav">
+	    <a href="home"><i class="fa fa-home fa-2x"></i></a>
+	    <a href="user_posts"><i class="fa fa-comment fa-2x"></i></a>
+	    <a href="account"><i class="fa fa-cog fa-2x"></i></a>
+	    <a href="logout"><i class="fa fa-sign-out fa-2x"></i></a>
+  </div>
 </div>
 
-<hr>
 
-<div id="right-view">
-   <% @posts.each do |p| %>
-     <p><%= minutes_in_words(p.created_at) %> ago</p>
-  	 <strong><%= p.body %></strong><br>
-  	 <%= p.latitude %><br>
-  	 <%= p.longitude %>
-  <!-- else 
-   <h1>No traces by you!</h1> -->
-  <% end %>
-  <!-- <end -->
+
+<div class="row">
+	<div id="post_radius">
+		<div class="three columns offset-by-three">
+			<p>Searching...</p>
+			<i class="fa fa-spinner fa-pulse fa-3x"></i>
+		</div>
+	</div>
+	<div class="six columns">
+	  <form method="POST" action="/post">
+		<textarea name="body"></textarea>
+		<input id="lat" type="hidden" name="latitude" value="">
+		<input id="lon" type="hidden" name="longitude" value="">
+		<input type="submit" value="Create Post">
+     </form>
+   </div>
 </div>
 
-<hr>
-<div id="post_radius">
 
-</div>
- <!-- to_a makes array object -->
-<!-- @post_radius.to_a -->
+
+
+
+

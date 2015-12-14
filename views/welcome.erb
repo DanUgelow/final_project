@@ -1,25 +1,50 @@
-<div id="top-header">
-	
-</div>
+  <div class="row">
+    <div id="signin" class="eight columns offset-by-three">
+        <form action="/signin" method="POST">
+          <input type="email"  autocomplete="on" placeholder="Email" name="email"/>
+          <input type="password"  autocomplete="off" placeholder="Password" name="password"/>
+          <input type="submit" value="Sign in"/>
+        </form>
+    </div>
+  </div>
 
+  <div id="middle" class="row">
+    <div class="three columns">
+      <h6>An app designed for you to speak to the world. Say what you feel, think, believe, and experience.</h6>
+      <img src="/imgs/talk.png">
+    </div>
+    <div class="three columns">
+      <h6>Write something and post it anonymously while in a location.</h6>
+      <img id="book" src="/imgs/journal.png">
+    </div>
+    <div class="three columns">
+       <h6>Anyone within a mile will be able to see what you've written...</h6>
+       <img src="/imgs/compass.png">
+    </div>
+    <div class="three columns">
+       <h6>and only see it when they are physically in that location.</h6>
+       <img src="/imgs/footprints.png">
+    </div>
+  </div>
 
+  <div id="signup" class="row">
+    <div class="two columns offset-by-three">
+      <div id="signup_form">
+        <h3>Discover</h3>
+        <form action="/signup" method="POST">
+          <input type="email" required="required" autocomplete="on" placeholder="Email" name="email"/>
+          <input type="password" required="required" autocomplete="off" placeholder="Password" name="password"/>
+          <input type="password" required="required" autocomplete="off" placeholder="Confirm Password" name="password_confirmation"/>
+          <input type="submit" value="Sign up"/>
+        </form>
+      </div>
+    </div>
+  </div>
 
-<!-- <div id="bottom" -->
-<form action="/signup" method="POST">
-  <label for="email">Email</label>
-  <input type="email" required="required" autocomplete="on" name="email"/>
-  <label for="password">Password</label>
-  <input type="password" required="required" autocomplete="off" name="password"/>
-  <input type="submit" value="Sign up"/>
-</form>
+ <div id="footer" class="row">
+     <div class="two columns">
+        <h6><i class="fa fa-copyright fa-1x"></i>Dan Ugelow</h6>
+     </div>
+  </div>
+    
 
-<hr>
-
-<form action="/signin" method="POST">
-  <label for="email">Email</label>
-  <input type="email"  autocomplete="on" name="email"/>
-  <label for="password">Password</label>
-  <input type="password"  autocomplete="off" name="password"/>
-  <input type="submit" value="Sign in"/>
-</form>
-<!-- </div> -->
