@@ -46,7 +46,6 @@ get '/logout' do
 end
 
 get '/home/location' do
-	# byebug
 	@posts = Post.near([params[:lat], params[:lon]], 1)
 	erb :location, :layout => false
 end

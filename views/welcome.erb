@@ -1,10 +1,29 @@
-  <div class="row">
+  <div id="bar" class="row">
+      <div class="two columns">
+          <img src="/imgs/logo2.png">
+      </div>
+      <div id="signin" class="eight columns offset-by-two">
+        <form id="signin_form" action="/signin" method="POST">
+          <input type="email"  autocomplete="on" placeholder="Email" name="email"/>
+          <input type="password"  autocomplete="off" placeholder="Password" name="password"/>
+          <input type="submit" value="Sign in"/>
+        </form>
+      </div>
+  </div>
+
+<!--   <div class="row">
     <div id="signin" class="eight columns offset-by-three">
         <form action="/signin" method="POST">
           <input type="email"  autocomplete="on" placeholder="Email" name="email"/>
           <input type="password"  autocomplete="off" placeholder="Password" name="password"/>
           <input type="submit" value="Sign in"/>
         </form>
+    </div>
+  </div> -->
+
+  <div id="tag_line" class="row">
+    <div class="eight columns offset-by-two">
+    <h2>The Stories That Surround You.</h2>
     </div>
   </div>
 
@@ -31,7 +50,7 @@
     <div class="two columns offset-by-three">
       <div id="signup_form">
         <h3>Discover</h3>
-        <form action="/signup" method="POST">
+        <form id="sign_box" action="/signup" method="POST">
           <input type="email" required="required" autocomplete="on" placeholder="Email" name="email"/>
           <input type="password" required="required" autocomplete="off" placeholder="Password" name="password"/>
           <input type="password" required="required" autocomplete="off" placeholder="Confirm Password" name="password_confirmation"/>
