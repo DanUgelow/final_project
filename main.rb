@@ -12,12 +12,14 @@ configure(:development){set :database, "sqlite3:app.sqlite3"}
 enable :sessions
 
 get '/' do
+	@user = User.new
 	erb :welcome
 end
 
 post '/signup' do
 	my_password = BCrypt::Password.create(params[:password])
-	@user = User.new(email: params[:email], password: my_password)
+	@user = User.new(email: params[:email], password: my_password, password_confirmation: params[:password_confirmation])
+	@user.save
 	if @user.save
 	  session[:user_id] = @user.id
 	  redirect "/home"
@@ -107,13 +109,13 @@ def minutes_in_words(timestamp)
     
     case minutes
       when 0..59           then "#{minutes} minutes"
-      when 60..90          then 'More than 1 hour'
-      when 89..119		   then 'Less than 2 hours'
-      when 120..179        then 'Less than 3 hours'
-      when 180..239        then 'Less than 4 hours'
-      when 240..719		   then 'Less than 11 hours'
-      when 720..1439       then 'Less than 12 hours'
-      when 1440..11519     then 'Less than a day'
+      when 60..90          then 'More than 1 hour ago'
+      when 89..119		   then 'Less than 2 hours ago'
+      when 120..179        then 'Less than 3 hours ago'
+      when 180..239        then 'Less than 4 hours ago'
+      when 240..719		   then 'Less than 11 hours ago'
+      when 720..1439       then 'Less than 12 hours ago'
+      when 1440..11519     then 'Less than a day ago'
       # when 11520..43199    then '&gt; ' << pluralize((minutes/11520).floor, 'week')
       # when 43200..525599   then '&gt; ' << pluralize((minutes/43200).floor, 'month')  
       # else                      '&gt; ' << pluralize((minutes/525600).floor, 'year')

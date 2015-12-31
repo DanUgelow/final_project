@@ -1,5 +1,13 @@
+#signup {
+  background-image: url("/imgs/dark_wall.png"); }
+  #signup h3 {
+    color: white;
+    text-align: center; }
+  #signup .form input[type="submit"], #signup .form input[type="email"], #signup .form input[type="password"] {
+    width: 100%; }
+
 body {
-  background-color: #F1F1F1; }
+  background-image: url("/imgs/pattern.png"); }
 
 #signin {
   margin-top: 25px; }
@@ -13,25 +21,13 @@ body {
   padding: 20px;
   background-color: white; }
 
-#signup {
-  background-color: #444444; }
-  #signup #signup_form {
-    background-color: #F1F1F1;
-    width: 300px;
-    border-radius: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    padding: 20px;
-    box-shadow: 10px 10px 5px #888888; }
-    #signup #signup_form h3 {
-      text-align: center; }
-    #signup #signup_form #sign_box {
-      margin-left: 60px; }
+#home {
+  border-radius: 20px; }
 
 #post_section {
   height: 300px;
-  overflow: scroll; }
+  overflow: scroll;
+  margin-top: 10px; }
   #post_section #posts {
     background-color: white;
     padding: 10px;
@@ -56,9 +52,5 @@ body {
 
 #post_form {
   margin-top: 10px; }
-
-#footer {
-  background-color: #2D2B2B;
-  height: 20px; }
 
 /*# sourceMappingURL=main.css.map */

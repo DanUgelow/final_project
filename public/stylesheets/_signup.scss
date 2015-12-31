@@ -1,0 +1,15 @@
+#signup {
+	// background-color: #444444;
+	h3 {
+		color: white;
+		text-align: center;
+	}
+	background-image: url("/imgs/dark_wall.png");
+	.form {
+	// border: solid red 2px;
+		input[type="submit"], input[type="email"], input[type="password"] {
+			width: 100%;
+		}
+  }
+}
+

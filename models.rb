@@ -2,11 +2,23 @@ require 'geocoder'
 
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  validates_presence_of :password, on: :create
-  validates :password, confirmation: true
-  validates_presence_of :password_confirmation
-  validates_presence_of :email
-  validates :email, uniqueness: true
+  has_secure_password
+  
+  validates(:email, 
+    presence: true, 
+    uniqueness: true)
+
+  validates(:password, 
+    presence: true,
+    on: :create, 
+    confirmation: true)
+    # length:{minimum: 5}
+
+  # validates(:password_confirmation, 
+  #   presence: true, 
+  #   confirmation: true)
+
+
 end
 
 class Post < ActiveRecord::Base

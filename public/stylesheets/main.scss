@@ -1,15 +1,10 @@
+@import '_signup';
+
 body {
-	background-color: #F1F1F1;
+	background-image: url("/imgs/pattern.png");
 }
 
-#bar {
-	// position: fixed;
-	// background-color: #0B4176;
-	// background-color: #2D2B2B;
-	// opacity: 0.9;
-	// height: 50px;
-	
-}
+
 #signin {
 	margin-top: 25px;
 	#signin_form{
@@ -26,29 +21,15 @@ body {
 	background-color: white;
 }
 
-#signup {
-	background-color: #444444;
-	// height: 300px;
-	#signup_form {
-		background-color: #F1F1F1;
-		width: 300px;
-		border-radius: 30px;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		margin-left: 30px;
-		padding: 20px;
-		box-shadow: 10px 10px 5px #888888;
-		h3 {
-			text-align: center;
-		}
-		#sign_box {
-			margin-left: 60px;
-		}
-	}
+#home {
+	
+	border-radius: 20px;
 }
+
 #post_section{
 	height: 300px;
 	overflow: scroll;
+	margin-top: 10px;
 	#posts {
 		background-color: white;
 		padding: 10px;
@@ -81,7 +62,7 @@ body {
 }
 
 
-#footer {
-	background-color: #2D2B2B;
-	height: 20px;
-}
+// #footer {
+// 	background-color: #2D2B2B;
+// 	height: 20px;
+// }

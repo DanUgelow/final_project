@@ -26,7 +26,7 @@ $(document).ready(function() {
         return lat_lon;
         
     }
-    // injection into form
+    // injection into form on home page submit
     // called in showPosition func because the geolocation values
     // need to be found first before everything else loads/saves data
     function setValues(lat, lon){
@@ -50,7 +50,7 @@ $(document).ready(function() {
                 break;
         }
     }
-            setTimeout(function() {
+            setTimeout(function() { //ajax call
             $.get("/home/location", {
                 // url params key=val
                 lat: lat_lon[0],
