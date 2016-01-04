@@ -1,6 +1,6 @@
 <div id="bar" class="row">
   <div class="four columns">
-      <img src="/imgs/logo2.png">
+       <a href="about"><img class="logo" src="/imgs/logo2.png"></a>
   </div>
 </div>
 
@@ -8,13 +8,13 @@
 <div class="row">
   <div id="nav">
 	    <a href="home"><i class="fa fa-home fa-2x"></i></a>
-	    <a href="user_posts"><i class="fa fa-comment fa-2x"></i></a>
+	    <a href="user_posts"><i class="fa fa-book fa-2x"></i></a>
 	    <a href="account"><i class="fa fa-cog fa-2x"></i></a>
 	    <a href="logout"><i class="fa fa-sign-out fa-2x"></i></a>
   </div>
 </div>
 
-<h4>Your Posts Will Appear Here</h4>
+<span id="posts_header"><h4>Your Post History Will Appear Here:</h4></span>
 
 <% @posts.each do |p| %>
 <div id="row">

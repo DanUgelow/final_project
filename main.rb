@@ -6,6 +6,7 @@ require 'byebug'
 require 'bcrypt'
 
 
+
 #for Heroku. Sets connection to db in app.sqlite3 through sqlite3
 configure(:development){set :database, "sqlite3:app.sqlite3"}
 
@@ -16,10 +17,14 @@ get '/' do
 	erb :welcome
 end
 
+get '/about' do
+	erb :about
+end
+
 post '/signup' do
-	my_password = BCrypt::Password.create(params[:password])
-	@user = User.new(email: params[:email], password: my_password, password_confirmation: params[:password_confirmation])
-	@user.save
+	# my_password = BCrypt::Password.create(params[:password])
+	# @user = User.new(email: params[:email], password: my_password, password_confirmation: params[:password_confirmation])
+	@user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
 	if @user.save
 	  session[:user_id] = @user.id
 	  redirect "/home"
@@ -31,10 +36,12 @@ end
 post '/signin' do
 	@user = User.find_by(email: params[:email])
 	# .== is a method call for comparing passwords
-	if @user && BCrypt::Password.new(@user.password).==(params[:password])
+	# if @user && BCrypt::Password.new(@user.password).==(params[:password])
+	if @user && @user.authenticate(params[:password])
 	  session[:user_id] = @user.id
 	  redirect "/home"
 	else
+	  flash[:alert] = "Incorrect email or password"
 	  redirect "/"
 	end
 end
@@ -56,8 +63,9 @@ end
 get '/home' do
 	@latitude = params[:lat]
     @longitude = params[:lon]
-    puts params
-	@posts = Post.all.order(:created_at).reverse
+    # fix order of posts
+	# @posts = Post.all
+	# .order(:created_at).reverse
 	erb :home
 end
 
@@ -108,7 +116,7 @@ def minutes_in_words(timestamp)
     return nil if minutes < 0
     
     case minutes
-      when 0..59           then "#{minutes} minutes"
+      when 0..59           then "#{minutes} minutes ago"
       when 60..90          then 'More than 1 hour ago'
       when 89..119		   then 'Less than 2 hours ago'
       when 120..179        then 'Less than 3 hours ago'

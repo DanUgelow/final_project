@@ -1,24 +1,29 @@
   <div id="bar" class="row">
       <div class="two columns">
-          <img src="/imgs/logo2.png">
+          <a href="about"><img class="logo" src="/imgs/logo2.png"></a>
       </div>
       <div id="signin" class="eight columns offset-by-two">
         <form id="signin_form" action="/signin" method="POST">
           <input type="email"  autocomplete="on" placeholder="Email" name="email"/>
           <input type="password"  autocomplete="off" placeholder="Password" name="password"/>
           <input type="submit" value="Sign in"/>
+          <% if flash[:alert] %>
+            <span id="flash"><%= flash[:alert] %></span>
+          <% end %>
         </form>
       </div>
   </div>
   
 <div class="row">
+<div class="six columns">
  <% if @user.errors.full_messages.any? %>   
   <ul>
     <% @user.errors.full_messages.each do |error_message| %>
-    <li><%= error_message%></li><br/>    
+    <li><%= error_message %></li><br>    
     <% end %>
   </ul> 
 <% end %>
+</div>
 </div>
 
 
@@ -49,25 +54,14 @@
   </div>
 
   <div id="signup" class="row">
-
     <div class="four columns offset-by-four">
-
-      <!-- <div id="wrapper"> -->
-
         <h3>Discover</h3>
-
         <form class="form" action="/signup" method="POST">
           <input type="email" class="email" required="required" autocomplete="on" placeholder="Email" name="email"/>
-
           <input type="password" required="required" autocomplete="off" placeholder="Password" name="password"/>
-
           <input type="password" required="required" autocomplete="off" placeholder="Confirm Password" name="password_confirmation"/>
-
           <input type="submit" value="Sign up"/>
-
         </form>
-
-    <!--   </div> -->
     </div>
   </div>
 

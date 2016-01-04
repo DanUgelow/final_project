@@ -9,6 +9,9 @@
 body {
   background-image: url("/imgs/pattern.png"); }
 
+.logo {
+  margin: 5px; }
+
 #signin {
   margin-top: 25px; }
   #signin #signin_form {
@@ -23,6 +26,14 @@ body {
 
 #home {
   border-radius: 20px; }
+
+#write_something {
+  color: white;
+  margin-left: 10px; }
+
+.fa-spinner {
+  color: white;
+  margin-top: 100px; }
 
 #post_section {
   height: 300px;
@@ -42,7 +53,7 @@ body {
   margin-top: 20px; }
 
 #posts_page {
-  height: 200px; }
+  height: 225px; }
   #posts_page #user_posts {
     background-color: white;
     padding: 10px;
@@ -50,7 +61,18 @@ body {
     margin-top: 10px;
     margin-left: 10px; }
 
+#posts_header {
+  color: white; }
+
 #post_form {
-  margin-top: 10px; }
+  margin-top: 20px; }
+  #post_form input[type="submit"] {
+    margin-top: 8px; }
+
+#flash {
+  color: white; }
+
+#about {
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */
