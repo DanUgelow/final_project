@@ -17,7 +17,6 @@ GEM
     arel (6.0.3)
     bcrypt (3.1.10)
     builder (3.2.2)
-    byebug (8.2.1)
     geocoder (1.2.12)
     i18n (0.7.0)
     json (1.8.3)
@@ -51,7 +50,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
-  byebug
   geocoder
   pg
   rake
