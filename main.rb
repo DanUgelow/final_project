@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 require './models'
-# require 'byebug'
+require 'byebug'
 require 'bcrypt'
 
 

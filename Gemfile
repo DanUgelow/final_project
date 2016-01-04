@@ -18,7 +18,7 @@ gem 'sass'
 #for Heroku
 group :development do   #for local dev      
   gem 'sqlite3' 
-  # gem 'byebug' 
+  gem 'byebug' 
 end   
 
 group :production do   #for when it's deployed  
