@@ -60,5 +60,5 @@ $(document).ready(function() {
                 //Used 'debugger' to access variable data
                 $('#post_radius').html(data);
             })
-        }, 5000);
+        }, 4000);
 });

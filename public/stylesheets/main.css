@@ -48,6 +48,11 @@ body {
 #nav {
   border-top: solid #E1E1E1 2px;
   border-bottom: solid #E1E1E1 2px; }
+  #nav a {
+    text-decoration: none;
+    font-family: 'Old Standard TT', 'Georgia', serif; }
+    #nav a:hover {
+      color: #116AC4; }
 
 #settings {
   margin-top: 20px; }
